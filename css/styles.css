@@ -3,10 +3,9 @@
   --primary-light: #c49bc7;
   --primary-dark: #4a314c;
   --background: #2d232e;
-  --text: #ffffff;
+  --text: #ffff;
   --text-secondary: rgba(255, 255, 255, 0.7);
 }
-
 * {
   margin: 0;
   padding: 0;
