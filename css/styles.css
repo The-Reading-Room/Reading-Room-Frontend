@@ -1,0 +1,149 @@
+:root {
+  --primary: #9b6b9e;
+  --primary-light: #c49bc7;
+  --primary-dark: #4a314c;
+  --background: #2d232e;
+  --text: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1;
+  background-color: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  padding: 2rem 0 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.search-container {
+  display: flex;
+  /* max-width: 600px; */
+  overflow: hidden;
+  /* margin: 2rem auto; */
+  background-color: rgb(47, 46, 51);
+  padding: 10px;
+}
+
+input[type="text"] {
+  width: 25%;
+  padding: 10px;
+  background-color: rgb(60, 50, 69);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  /* width: 100%; */
+  /* padding: 1rem; */
+  border: none;
+  /* border-radius: 2rem; */
+  /* background: rgba(255, 255, 255, 0.1); */
+  color: var(--text);
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+input[type="text"]::placeholder {
+  color: var(--text-secondary);
+}
+
+input[type="text"]:focus {
+  /* outline: none; */
+  /* background: rgba(255, 255, 255, 0.2); */
+  background-color: rgb(60, 50, 69);
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+#booksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.book-card {
+  background: var(--primary-dark);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.book-cover {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+.book-info {
+  padding: 1rem;
+}
+
+.book-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.book-author {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+footer {
+  background-color: var(--primary-dark);
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--primary-light);
+  border-top: 3px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hidden {
+  display: none;
+}
+

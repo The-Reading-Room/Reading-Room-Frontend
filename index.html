@@ -3,46 +3,9 @@
 <head>
     <title>Reading Room</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #d798ec;
-            color: #090000;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #444;
-            padding: 0.5rem 0;
-        }
-        nav a {
-            color: #fff;
-            margin: 0 1rem;
-            text-decoration: none;
-        }
-        main {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 2rem;
-        }
-        
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            /* padding: 1rem 0; */
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            left: 0px;
-        }
-    </style>
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <!-- <link rel="stylesheet" href="css/nav.css"> -->
+    <!-- <link rel="stylesheet" href="css/modal.css"> -->
 </head>
 <body>
     <header>
@@ -62,7 +25,7 @@
     </div>
     <div style="padding-left:16px">
 
-        <section id="section">
+        <!-- <section id="section"> -->
         <!-- <div class="row">
             <div class="column">
                 <div class="card">
@@ -72,10 +35,28 @@
                 </div>
             </div>
         </div> -->
-    </section>
+    <!-- </section> -->
+    <main>
+        <div id="loader" class="hidden">
+          <div class="spinner"></div>
+        </div>
+        <div id="error" class="hidden"></div>
+        <div id="booksGrid"></div>
+      </main>
     <footer>
         <p>&copy; 2024 Reading Room. All rights reserved.</p>
     </footer>
+    <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="close-button">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
 </body>
-<script src="script.js"></script>
+<!-- <script src="script.js"></script> -->
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/bookCard.js"></script>
+<!-- <script src="js/modal.js"></script> -->
+<script src="js/app.js"></script>
 </html>
