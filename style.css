@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(63, 40, 72);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h3,p{
+    color: white
+}
+.topnav {
+    overflow: hidden;
+    background-color: rgb(47, 46, 51);
+    padding: 10px;
+}
+
+form{
+    width: 25%;
+    padding: 10px;
+    background-color: rgb(60, 50, 69);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+input {
+    all:unset;
+    font: 15px system-ui;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 6px 9px;
+}
+.thumbnail {
+    height:250px;
+    width: 200px;
+    border-radius: 19px;
+}
+.column {
+    float: left;
+    width: 25%;
+    padding: 10 px 10 px;
+}
+
+.card {
+    height: 25%;
+    width: 250px;
+    border-radius: 19px;
+    padding: 15px;
+    text-align:center;
+    background-color: #d798ec;
+}
