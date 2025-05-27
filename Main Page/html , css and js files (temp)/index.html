@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Room</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                <i class="fas fa-book navbar-icon"></i>
+                <h1 class="navbar-title">Reading Room</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-layout">
+        <!-- Left Sidebar -->
+        <div class="left-sidebar-container">
+            <div class="left-sidebar">
+                <div class="sidebar-content">
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <button class="nav-button active" data-nav="home">
+                                <i class="fas fa-home nav-icon"></i>
+                                <span class="nav-label">Home</span>
+                            </button>
+                        </li>
+                        <li class="nav-item dropdown-item">
+                            <button class="nav-button" data-nav="search">
+                                <i class="fas fa-search nav-icon"></i>
+                                <span class="nav-label">Search</span>
+                                <i class="fas fa-chevron-right dropdown-arrow"></i>
+                            </button>
+                            <div class="dropdown-menu search-dropdown">
+                                <div class="dropdown-content">
+                                    <div class="search-section">
+                                        <input type="text" id="globalSearchInput" placeholder="Search books, authors, users..." class="dropdown-search-input">
+                                        <div class="search-results" id="searchResults"></div>
+                                    </div>
+                                    <div class="search-categories">
+                                        <button class="dropdown-option" data-search-type="books">
+                                            <i class="fas fa-book dropdown-option-icon"></i>
+                                            <span>Search Books</span>
+                                        </button>
+                                        <button class="dropdown-option" data-search-type="authors">
+                                            <i class="fas fa-user-edit dropdown-option-icon"></i>
+                                            <span>Search Authors</span>
+                                        </button>
+                                        <button class="dropdown-option" data-search-type="users">
+                                            <i class="fas fa-users dropdown-option-icon"></i>
+                                            <span>Search Users</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown-item">
+                            <button class="nav-button" data-nav="create">
+                                <i class="fas fa-plus-circle nav-icon"></i>
+                                <span class="nav-label">Create</span>
+                                <i class="fas fa-chevron-right dropdown-arrow"></i>
+                            </button>
+                            <div class="dropdown-menu create-dropdown">
+                                <div class="dropdown-content">
+                                    <button class="dropdown-option" data-action="create-post">
+                                        <i class="fas fa-pen dropdown-option-icon"></i>
+                                        <span>Posts</span>
+                                    </button>
+                                    <button class="dropdown-option" data-action="create-list">
+                                        <i class="fas fa-list dropdown-option-icon"></i>
+                                        <span>Lists</span>
+                                    </button>
+                                    <button class="dropdown-option" data-action="create-bookclub">
+                                        <i class="fas fa-users dropdown-option-icon"></i>
+                                        <span>Book Clubs</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown-item">
+                            <button class="nav-button" data-nav="explore">
+                                <i class="fas fa-compass nav-icon"></i>
+                                <span class="nav-label">Explore</span>
+                                <i class="fas fa-chevron-right dropdown-arrow"></i>
+                            </button>
+                            <div class="dropdown-menu explore-dropdown">
+                                <div class="dropdown-content">
+                                    <button class="dropdown-option" data-category="classics">
+                                        <i class="fas fa-university dropdown-option-icon"></i>
+                                        <span>Classics</span>
+                                    </button>
+                                    <button class="dropdown-option" data-category="fiction">
+                                        <i class="fas fa-book-open dropdown-option-icon"></i>
+                                        <span>Fiction</span>
+                                    </button>
+                                    <button class="dropdown-option" data-category="fantasy">
+                                        <i class="fas fa-dragon dropdown-option-icon"></i>
+                                        <span>Fantasy</span>
+                                    </button>
+                                    <button class="dropdown-option" data-category="history">
+                                        <i class="fas fa-landmark dropdown-option-icon"></i>
+                                        <span>History</span>
+                                    </button>
+                                    <button class="dropdown-option" data-category="romance">
+                                        <i class="fas fa-heart dropdown-option-icon"></i>
+                                        <span>Romance</span>
+                                    </button>
+                                    <button class="dropdown-option" data-category="thriller">
+                                        <i class="fas fa-bolt dropdown-option-icon"></i>
+                                        <span>Thriller</span>
+                                    </button>
+                                    <button class="dropdown-option" data-category="mystery">
+                                        <i class="fas fa-search dropdown-option-icon"></i>
+                                        <span>Mystery</span>
+                                    </button>
+                                    <button class="dropdown-option" data-category="science-fiction">
+                                        <i class="fas fa-rocket dropdown-option-icon"></i>
+                                        <span>Science Fiction</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-button" data-nav="bookclubs">
+                                <i class="fas fa-users nav-icon"></i>
+                                <span class="nav-label">Book Clubs</span>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-button" data-nav="profile">
+                                <i class="fas fa-user nav-icon"></i>
+                                <span class="nav-label">Profile</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home View -->
+            <div id="home-view" class="content-view active">
+                <div class="posts-container">
+                    <!-- Posts will be dynamically generated here -->
+                </div>
+            </div>
+
+            <!-- Create Post View -->
+            <div id="create-post-view" class="content-view">
+                <div class="create-post-container">
+                    <div class="create-post-header">
+                        <button class="back-button" onclick="showHomeView()">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back to Home</span>
+                        </button>
+                        <h2 class="create-post-title">Share Your Reading Experience</h2>
+                    </div>
+
+                    <div class="create-post-form">
+                        <!-- Book Search Section -->
+                        <div class="book-search-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-book-open"></i>
+                                Select a Book
+                            </h3>
+                            <div class="book-search-container">
+                                <div class="search-input-wrapper">
+                                    <input type="text" id="bookSearchInput" placeholder="Search for a book..." class="book-search-input">
+                                    <button class="search-backend-btn" onclick="searchBackend()">
+                                        <i class="fas fa-database"></i>
+                                        <span>Search Library</span>
+                                    </button>
+                                </div>
+                                <div class="selected-book" id="selectedBook" style="display: none;">
+                                    <img src="/placeholder.svg" alt="Book Cover" class="selected-book-cover">
+                                    <div class="selected-book-info">
+                                        <h4 class="selected-book-title"></h4>
+                                        <p class="selected-book-author"></p>
+                                    </div>
+                                    <button class="remove-book-btn" onclick="removeSelectedBook()">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Thoughts Section -->
+                        <div class="thoughts-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-pen-fancy"></i>
+                                Share Your Thoughts
+                            </h3>
+                            <div class="thoughts-input-container">
+                                <textarea id="thoughtsTextarea" placeholder="What did you think about this book? Share your insights, favorite quotes, or how it made you feel..." class="thoughts-textarea"></textarea>
+                                <div class="textarea-footer">
+                                    <span class="character-count">0 / 2000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Image Upload Section -->
+                        <div class="image-upload-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-image"></i>
+                                Add Images (Optional)
+                            </h3>
+                            <div class="image-upload-container">
+                                <input type="file" id="imageUpload" accept="image/*" multiple style="display: none;">
+                                <div class="upload-area" onclick="document.getElementById('imageUpload').click()">
+                                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                                    <p class="upload-text">Click to upload images</p>
+                                    <p class="upload-subtext">PNG, JPG, GIF up to 10MB each</p>
+                                </div>
+                                <div class="uploaded-images" id="uploadedImages"></div>
+                            </div>
+                        </div>
+
+                        <!-- Post Actions -->
+                        <div class="post-actions-section">
+                            <div class="post-settings">
+                                <label class="setting-item">
+                                    <input type="checkbox" id="allowComments" checked>
+                                    <span class="checkmark"></span>
+                                    <span class="setting-label">Allow comments</span>
+                                </label>
+                                <label class="setting-item">
+                                    <input type="checkbox" id="publicPost" checked>
+                                    <span class="checkmark"></span>
+                                    <span class="setting-label">Make post public</span>
+                                </label>
+                            </div>
+                            <div class="post-buttons">
+                                <button class="draft-button" onclick="saveDraft()">
+                                    <i class="fas fa-save"></i>
+                                    Save Draft
+                                </button>
+                                <button class="post-button" onclick="publishPost()">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Publish Post
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lists View -->
+            <div id="lists-view" class="content-view">
+                <div class="lists-container">
+                    <div class="lists-header">
+                        <button class="back-button" onclick="showHomeView()">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Back to Home</span>
+                        </button>
+                        <div class="lists-title-section">
+                            <h2 class="lists-title">
+                                <i class="fas fa-bookmark"></i>
+                                My Reading Lists
+                            </h2>
+                            <p class="lists-subtitle">Organize and track your reading journey</p>
+                        </div>
+                        <button class="create-new-list-btn" onclick="showCreateListModal()">
+                            <i class="fas fa-plus"></i>
+                            <span>Create New List</span>
+                        </button>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="lists-stats">
+                        <div class="stat-card-large">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 class="stat-number">12</h3>
+                                <p class="stat-label">Want to Read</p>
+                            </div>
+                        </div>
+                        <div class="stat-card-large">
+                            <div class="stat-icon completed">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 class="stat-number">24</h3>
+                                <p class="stat-label">Completed</p>
+                            </div>
+                        </div>
+                        <div class="stat-card-large">
+                            <div class="stat-icon custom">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 class="stat-number">5</h3>
+                                <p class="stat-label">Custom Lists</p>
+                            </div>
+                        </div>
+                        <div class="stat-card-large">
+                            <div class="stat-icon total">
+                                <i class="fas fa-books"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 class="stat-number">41</h3>
+                                <p class="stat-label">Total Books</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Default Lists -->
+                    <div class="lists-section">
+                        <h3 class="section-heading">
+                            <i class="fas fa-star"></i>
+                            Default Lists
+                        </h3>
+                        <div class="lists-grid">
+                            <div class="list-card default-list" data-list-type="want-to-read">
+                                <div class="list-card-header">
+                                    <div class="list-icon want-to-read">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="list-actions">
+                                        <button class="list-action-btn" title="View List">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="list-card-content">
+                                    <h4 class="list-title">Want to Read</h4>
+                                    <p class="list-description">Books you're planning to read</p>
+                                    <div class="list-stats">
+                                        <span class="book-count">12 books</span>
+                                        <span class="last-updated">Updated 2 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="list-preview">
+                                    <div class="book-covers">
+                                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <div class="more-books">+9</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="list-card default-list" data-list-type="completed">
+                                <div class="list-card-header">
+                                    <div class="list-icon completed">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="list-actions">
+                                        <button class="list-action-btn" title="View List">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="list-card-content">
+                                    <h4 class="list-title">Completed</h4>
+                                    <p class="list-description">Books you've finished reading</p>
+                                    <div class="list-stats">
+                                        <span class="book-count">24 books</span>
+                                        <span class="last-updated">Updated today</span>
+                                    </div>
+                                </div>
+                                <div class="list-preview">
+                                    <div class="book-covers">
+                                        <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <div class="more-books">+21</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Custom Lists -->
+                    <div class="lists-section">
+                        <h3 class="section-heading">
+                            <i class="fas fa-palette"></i>
+                            Custom Lists
+                        </h3>
+                        <div class="lists-grid">
+                            <div class="list-card custom-list" data-list-id="1">
+                                <div class="list-card-header">
+                                    <div class="list-icon custom favorites">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="list-actions">
+                                        <button class="list-action-btn" title="Edit List">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="list-action-btn danger" title="Delete List">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="list-card-content">
+                                    <h4 class="list-title">Favorites</h4>
+                                    <p class="list-description">My all-time favorite books that I'd recommend to anyone</p>
+                                    <div class="list-stats">
+                                        <span class="book-count">8 books</span>
+                                        <span class="last-updated">Updated 1 week ago</span>
+                                    </div>
+                                </div>
+                                <div class="list-preview">
+                                    <div class="book-covers">
+                                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <div class="more-books">+5</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="list-card custom-list" data-list-id="2">
+                                <div class="list-card-header">
+                                    <div class="list-icon custom classics">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="list-actions">
+                                        <button class="list-action-btn" title="Edit List">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="list-action-btn danger" title="Delete List">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="list-card-content">
+                                    <h4 class="list-title">Must Read Classics</h4>
+                                    <p class="list-description">Timeless literature that shaped the world</p>
+                                    <div class="list-stats">
+                                        <span class="book-count">15 books</span>
+                                        <span class="last-updated">Updated 3 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="list-preview">
+                                    <div class="book-covers">
+                                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <div class="more-books">+12</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="list-card custom-list" data-list-id="3">
+                                <div class="list-card-header">
+                                    <div class="list-icon custom sci-fi">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <div class="list-actions">
+                                        <button class="list-action-btn" title="Edit List">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="list-action-btn danger" title="Delete List">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="list-card-content">
+                                    <h4 class="list-title">Sci-Fi Adventures</h4>
+                                    <p class="list-description">Mind-bending science fiction journeys</p>
+                                    <div class="list-stats">
+                                        <span class="book-count">6 books</span>
+                                        <span class="last-updated">Updated 5 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="list-preview">
+                                    <div class="book-covers">
+                                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=40&h=60&fit=crop" alt="Book" class="preview-cover">
+                                        <div class="more-books">+3</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <div class="right-sidebar-container">
+            <div class="right-sidebar">
+                <div class="sidebar-content">
+                    <!-- Your Stats -->
+                    <div class="stats-section">
+                        <h3 class="section-title">Your Stats</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <p class="stat-number">24</p>
+                                <p class="stat-label">Books Read</p>
+                            </div>
+                            <div class="stat-card">
+                                <p class="stat-number">8</p>
+                                <p class="stat-label">Book Lists</p>
+                            </div>
+                            <div class="stat-card">
+                                <p class="stat-number">3</p>
+                                <p class="stat-label">Book Clubs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Popular Genres -->
+                    <div class="genres-section">
+                        <h3 class="section-title">Popular Genres</h3>
+                        <div class="genres-list">
+                            <div class="genre-item">
+                                <div class="genre-header">
+                                    <span>Fantasy</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="75"></div>
+                                </div>
+                            </div>
+                            <div class="genre-item">
+                                <div class="genre-header">
+                                    <span>Science Fiction</span>
+                                    <span>60%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="60"></div>
+                                </div>
+                            </div>
+                            <div class="genre-item">
+                                <div class="genre-header">
+                                    <span>Mystery</span>
+                                    <span>45%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="45"></div>
+                                </div>
+                            </div>
+                            <div class="genre-item">
+                                <div class="genre-header">
+                                    <span>Romance</span>
+                                    <span>30%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-percentage="30"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trending Books -->
+                    <div class="trending-section">
+                        <h3 class="section-title">Trending Books</h3>
+                        <ul class="trending-list">
+                            <li class="trending-item">
+                                <p class="book-title">Fourth Wing</p>
+                                <p class="book-author">Rebecca Yarros</p>
+                            </li>
+                            <li class="trending-item">
+                                <p class="book-title">Iron Flame</p>
+                                <p class="book-author">Rebecca Yarros</p>
+                            </li>
+                            <li class="trending-item">
+                                <p class="book-title">House of Flame and Shadow</p>
+                                <p class="book-author">Sarah J. Maas</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
